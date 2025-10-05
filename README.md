@@ -1,16 +1,30 @@
-# Adaptive Micro-Habit App
+# Adaptive Micro-Habit App (Project Mirai)
 
-A mobile application that helps users build long-term habits by breaking them down into adaptive micro-habits. The app uses AI to adjust habit difficulty based on user performance and provides a gamified experience with a friendly mascot.
+A mobile application that helps users build long-term habits by breaking them down into **adaptive micro-habits**. The app uses AI to adjust habit difficulty based on user performance and provides a **gamified experience** with a friendly mascot.
 
-## Tech Stack
+> ⚠️ **Note:** This project is currently under active development and is **not yet complete**.  
+> We welcome **open-source contributions** from developers, designers, and AI enthusiasts to help shape the future of Mirai! 🎉  
+> Check the [Contributing](#contributing) section below for details.
 
-- **Backend**: Python with FastAPI
-- **Database**: PostgreSQL
-- **Frontend**: React Native with Redux Toolkit
-- **Notifications**: Firebase Cloud Messaging (FCM)
-- **AI/ML**: Custom Python logic with optional Hugging Face/OpenAI integration
+---
 
-## Project Structure
+## 🧠 Overview
+
+Mirai aims to make habit-building fun and achievable by focusing on **micro-progress**. Instead of overwhelming users with big goals, it breaks habits into smaller adaptive steps that evolve with user performance.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Backend:** Python (FastAPI)
+- **Database:** PostgreSQL
+- **Frontend:** React Native (with Redux Toolkit)
+- **Notifications:** Firebase Cloud Messaging (FCM)
+- **AI/ML:** Custom Python logic with optional Hugging Face / OpenAI integration
+
+---
+
+## 📁 Project Structure
 
 ```
 Mirai/
@@ -35,20 +49,22 @@ Mirai/
 └── docs/                   # Documentation
 ```
 
-## Features
+---
 
-- **User Authentication**: JWT-based auth with email/password and social login
-- **Habit Management**: Create, view, and manage personal habits
-- **Micro-Habit Engine**: AI-powered micro-habit generation and tracking
-- **Adaptive Difficulty**: Automatic difficulty adjustment based on performance
-- **Notifications**: Daily reminders and motivational messages
-- **Mascot System**: Friendly character with personalized interactions
+## ✨ Features
 
-## Quick Start
+- **User Authentication:** JWT-based with email/password and social login  
+- **Habit Management:** Create, view, and manage personal habits  
+- **Micro-Habit Engine:** AI-driven micro-habit generation and tracking  
+- **Adaptive Difficulty:** Dynamic habit adjustment based on user performance  
+- **Notifications:** Daily reminders and motivational prompts via FCM  
+- **Mascot System:** Friendly AI-powered companion for engagement  
+
+---
+
+## 🚀 Quick Start
 
 ### Option 1: Automated Setup (Recommended)
-
-Run the automated setup script:
 
 ```bash
 chmod +x setup.sh
@@ -57,115 +73,217 @@ chmod +x setup.sh
 
 ### Option 2: Quick Run (After Setup)
 
-If you've already run the setup script, you can quickly start both backend and frontend:
-
 ```bash
-# On macOS/Linux:
+# macOS/Linux
 chmod +x run.sh
 ./run.sh
 
-# On Windows:
+# Windows
 run.bat
 ```
 
 ### Option 3: Manual Setup
 
-For detailed manual setup instructions, see [SETUP_GUIDE.md](SETUP_GUIDE.md)
+See [SETUP_GUIDE.md](SETUP_GUIDE.md) for detailed instructions.
 
-## Manual Setup
+---
+
+## ⚙️ Manual Setup
 
 ### Prerequisites
 
 - Python 3.8+
 - Node.js 16+
 - PostgreSQL 12+
-- React Native development environment
+- React Native environment configured
 
-### Backend Setup
+---
 
-1. Navigate to the backend directory
-2. Create a virtual environment: `python -m venv venv`
-3. Activate the environment: `source venv/bin/activate` (Linux/Mac) or `venv\Scripts\activate` (Windows)
-4. Install dependencies: `pip install -r requirements.txt`
-5. Set up environment variables:
+### 🧩 Backend Setup
+
+1. Navigate to the backend directory:
+   ```bash
+   cd backend
+   ```
+2. Create and activate a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # Mac/Linux
+   venv\Scripts\activate     # Windows
+   ```
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Configure environment:
    ```bash
    cp env.example .env
-   # Edit .env with your database and configuration settings
    ```
-6. Create PostgreSQL database:
+5. Create database:
    ```sql
    CREATE DATABASE mirai_db;
    ```
-7. Run database migrations: `alembic upgrade head`
-8. Start the server: `uvicorn app.main:app --reload`
+6. Run migrations:
+   ```bash
+   alembic upgrade head
+   ```
+7. Start the server:
+   ```bash
+   uvicorn app.main:app --reload
+   ```
 
-### Frontend Setup
+---
 
-1. Navigate to the frontend directory
-2. Install dependencies: `npm install`
-3. Set up environment variables:
+### 📱 Frontend Setup
+
+1. Navigate to the frontend:
+   ```bash
+   cd frontend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Configure environment:
    ```bash
    cp env.example .env
-   # Edit .env with your API and Firebase configuration
    ```
-4. For iOS: `cd ios && pod install && cd ..`
-5. Start the development server: `npm start`
-6. Run on device/simulator: `npm run ios` or `npm run android`
+4. iOS setup (Mac only):
+   ```bash
+   cd ios && pod install && cd ..
+   ```
+5. Start app:
+   ```bash
+   npm start
+   npm run ios   # or npm run android
+   ```
 
-### Firebase Setup (Optional)
+---
 
-1. Create a Firebase project at https://console.firebase.google.com
-2. Enable Cloud Messaging
-3. Download `google-services.json` (Android) and `GoogleService-Info.plist` (iOS)
-4. Place them in the appropriate directories
-5. Update your `.env` file with Firebase configuration
+### 🔔 Firebase Setup (Optional)
 
-## API Documentation
+1. Create a Firebase project  
+2. Enable **Cloud Messaging**  
+3. Download `google-services.json` (Android) and `GoogleService-Info.plist` (iOS)  
+4. Place files in respective directories  
+5. Update `.env` with Firebase configs  
 
-Once the backend is running, visit `http://localhost:8000/docs` for interactive API documentation.
+---
 
-## Development
+## 📖 API Documentation
 
-### Backend Development
+Once the backend is running, visit:
 
-- API endpoints are in `backend/app/api/api_v1/endpoints/`
-- Database models are in `backend/app/models/`
-- Business logic is in `backend/app/services/`
-- Run tests: `pytest`
+👉 **http://localhost:8000/docs**
 
-### Frontend Development
+for interactive API testing (Swagger UI).
 
-- Screens are in `frontend/src/screens/`
-- Components are in `frontend/src/components/`
-- Redux store is in `frontend/src/store/`
-- API services are in `frontend/src/services/`
-- Run tests: `npm test`
+---
 
-## Deployment
+## 🧪 Development Guidelines
 
-### Backend Deployment
+### Backend
 
-1. Set up a PostgreSQL database
-2. Configure environment variables for production
-3. Run migrations: `alembic upgrade head`
-4. Deploy using your preferred method (Docker, Heroku, etc.)
+- Endpoints: `backend/app/api/api_v1/endpoints/`
+- Models: `backend/app/models/`
+- Services: `backend/app/services/`
+- Run tests:
+  ```bash
+  pytest
+  ```
 
-### Frontend Deployment
+### Frontend
 
-1. Build for production: `npm run build:android` or `npm run build:ios`
+- Screens: `frontend/src/screens/`
+- Components: `frontend/src/components/`
+- Store: `frontend/src/store/`
+- API services: `frontend/src/services/`
+- Run tests:
+  ```bash
+  npm test
+  ```
+
+---
+
+## 🚢 Deployment
+
+### Backend
+
+1. Configure production `.env`
+2. Run migrations: `alembic upgrade head`
+3. Deploy (Docker, Render, or Railway)
+
+### Frontend
+
+1. Build for production:
+   ```bash
+   npm run build:android
+   npm run build:ios
+   ```
 2. Deploy to app stores or distribute APK/IPA files
 
-## Troubleshooting
+---
 
-### Common Issues
+## 🐞 Troubleshooting
 
-1. **Database connection errors**: Check your PostgreSQL service and connection string
-2. **React Native build errors**: Ensure you have the correct development environment setup
-3. **Firebase errors**: Verify your Firebase configuration and credentials
-4. **API connection errors**: Check that the backend is running and accessible
+**Common Issues**
+| Problem | Solution |
+|----------|-----------|
+| Database errors | Check PostgreSQL connection string |
+| React Native build issues | Verify correct SDK and Node versions |
+| Firebase errors | Double-check credentials |
+| API not connecting | Ensure backend is running locally |
 
-### Getting Help
+---
 
-- Check the API documentation at `http://localhost:8000/docs`
-- Review the logs for detailed error messages
-- Ensure all dependencies are properly installed
+## 🤝 Contributing
+
+We’re excited to have contributors join the project! 💡  
+If you’d like to contribute:
+
+1. **Fork** this repository  
+2. **Create** a feature branch  
+   ```bash
+   git checkout -b feature/your-feature
+   ```
+3. **Commit** changes and push  
+4. **Open a Pull Request** with a clear description
+
+### Contribution Ideas
+
+- Implement missing API endpoints  
+- Improve AI/micro-habit recommendation logic  
+- Design better mascot interactions  
+- Add UI improvements and animations  
+- Write tests and improve documentation  
+
+Your name will be credited in the **Contributors** section once merged! 🏆
+
+---
+
+## 🧭 Roadmap
+
+- [ ] AI-based adaptive difficulty engine  
+- [ ] Gamified reward system  
+- [ ] Enhanced mascot personality  
+- [ ] Social habit challenges  
+- [ ] Cross-platform deployment (Android & iOS)
+
+---
+
+## 📫 Getting Help
+
+- Check API docs at `http://localhost:8000/docs`
+- Review console/logs for error details
+- Open an issue on GitHub for support
+
+---
+
+## 💬 Acknowledgements
+
+Built with ❤️ by contributors who believe in small steps leading to big change.  
+Let’s make habit-building smarter, one micro-step at a time.
+
+---
+
+> 🌱 _“Consistency beats intensity — one micro-habit at a time.”_
